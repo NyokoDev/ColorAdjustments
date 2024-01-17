@@ -37,7 +37,7 @@ namespace ColorAdjustmentsMod.Settings
                     serializer.Serialize(writer, Instance);
                 }
 
-                Console.WriteLine($"GlobalVariables saved to {filePath}");
+               
             }
             catch (Exception ex)
             {

@@ -73,7 +73,7 @@ namespace ColorAdjustmentsMod.Mod
 
 
         [SettingsUISection("Advanced")]
-        [SettingsUISlider(min = -500f, max = 1000f, step = 1f, unit = "percentage", scaleDragVolume = true, scalarMultiplier = 100f)]
+        [SettingsUISlider(min = -10000f, max = 10000f, step = 10.00f, unit = "integer", scaleDragVolume = true, scalarMultiplier = 100f)]
         public float Contrast
         {
             get { return GlobalVariables.Instance.Contrast; }
@@ -85,7 +85,7 @@ namespace ColorAdjustmentsMod.Mod
         }
 
         [SettingsUISection("Advanced")]
-        [SettingsUISlider(min = -500f, max = 1000f, step = 1f, unit = "percentage", scaleDragVolume = true, scalarMultiplier = 100f)]
+        [SettingsUISlider(min = -10000f, max = 10000f, step = 10.00f, unit = "integer", scaleDragVolume = true, scalarMultiplier = 100f)]
         public float HueShift
         {
             get { return GlobalVariables.Instance.hueShift; }
@@ -97,7 +97,7 @@ namespace ColorAdjustmentsMod.Mod
         }
 
         [SettingsUISection("Advanced")]
-        [SettingsUISlider(min = -500f, max = 1000f, step = 1f, unit = "percentage", scaleDragVolume = true, scalarMultiplier = 100f)]
+        [SettingsUISlider(min = -10000f, max = 10000f, step = 10.00f, unit = "integer", scaleDragVolume = true, scalarMultiplier = 100f)]
         public float Saturation
         {
             get { return GlobalVariables.Instance.Saturation; }
