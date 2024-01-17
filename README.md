@@ -1,46 +1,48 @@
-# ReRendering options
-More rendering options!
+# ColorAdjustments
+ Fine-tune exposure, contrast, hue, and saturation.
 
 Similar to Dynamic Resolution Extended, this mod also features a settings entry within the settings menu.
 
-Huge thanks to algernon for input, as always check out his other creations!
-
-What is 'ReRendering Options'? It's a mod that allows you to switch different Unity QualitySettings within the game UI with the purpose of saving on performance.
-
-NOTE: Some options are forced tuned which means they cannot be changed on settings menu as of now, in future updates I plan to expand on functionality. In the future it might be possible to merge DynamicResolutionExtended into this mod instead.
-
-This mod makes 'Performance Squeezer' deprecated as this mod and Dynamic Resolution Extended have the same features.
-
 This mod utilizes algernon's Localization framework and you're more than welcome to contact me/make push request with additional changes.
+Huge thanks to algernon for input.
 
 # Usage
 
 
-Find 'ReRendering Options' section in the settings menu.
+Find 'ColorAdjustments' section in the settings menu.
+ 
+ Here you will find 4 sliders that allow you to change PostExposure, Contrast, HueShift and Saturation for a more pleasant look. These settings are saved. 
 
-Within here you can find a base option which is 'Force Low Global Quality', don't be scared!
+ Note! ColorFilter is missing due to difficulties getting the value to work, however it is planned.
 
-The other options are within the Advanced tab, to show them, click 'Show Advanced'
 
-![Settings Menu](https://i.imgur.com/WV5sQDV.png)
+
+The mod also includes options to import/export your own file (you must do this manually), you can change these settings in game as you would with Photo Mode.
+
+Note: Photo Mode Preserve is NOT needed at all to make this mod work. Simply standalone.
+
+![Settings Menu](https://i.imgur.com/Bya55UL.png)
 
 This mod has been labelled as TEST and it's obviously not the final release. 
-# NOTE
-With v1.2 you can now export/import your settings to share with others.
-
-Location is here:
-C:\Program Files (x86)\Steam\steamapps\common\Cities Skylines II. Find "ROSettings.xml"
-To import settings, simply replace that file with your file.
 
 
-I, Nyoko have constructed this code, drawing from Algernon's 529 Lites code as its foundation.
+# How to import your own visual settings
+First of all head to this location:
+C:\Program Files (x86)\Steam\steamapps\common\Cities Skylines II\Cities2_Data\
+
+If your install is different from C: simply switch that to your location instead. The mod will redirect to the currently installed directory anyway.
+
+Obtain your .XML and place it in there replacing the older ColorAdjustments.xml then restart your game to refresh the changes.
+
+
+I, Nyoko have constructed this code.
 
 Explicit prohibition against redistributing any monetary aspects. This mod can also be found at SkyLinx, display only.
 
 # Support and Links
 
 # Source code:
-[![GitHub](https://i.imgur.com/JSJEBdZ.png)](https://github.com/NyokoDev/ReRendering-Options)
+[![GitHub](https://i.imgur.com/JSJEBdZ.png)](https://github.com/NyokoDev/ColorAdjustments)
 
 
 You're welcome to do push requests with compatibility improvements.
@@ -52,10 +54,6 @@ You're welcome to do push requests with compatibility improvements.
 # Consider supporting me!
 [![Donate](https://storage.ko-fi.com/cdn/brandasset/kofi_s_tag_dark.png)](https://ko-fi.com/devnyoko)
 
-
-
-Known issues:
-LevelOfDetail value might not always save correctly due to limitations and the value being clamped elsewhere (Being worked on).
 
 
 Hope you guys enjoy!
