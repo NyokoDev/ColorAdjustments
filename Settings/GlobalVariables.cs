@@ -16,6 +16,12 @@ namespace ColorAdjustmentsMod.Settings
         [XmlElement]
         public float Contrast { get; set; }
 
+        [XmlElement]
+        public float hueShift { get; set; }
+
+        [XmlElement]
+        public float Saturation { get; set; }
+
 
         public static void SaveToFile(string filePath)
         {
@@ -55,6 +61,8 @@ namespace ColorAdjustmentsMod.Settings
                     // Set the loaded values to the corresponding properties.
                     GlobalVariables.Instance.PostExposure = loadedVariables.PostExposure;
                     GlobalVariables.Instance.Contrast = loadedVariables.Contrast;
+                    GlobalVariables.Instance.hueShift = loadedVariables.hueShift;
+                    GlobalVariables.Instance.Saturation = loadedVariables.Saturation;
 
                     return loadedVariables;
                 }

@@ -31,14 +31,15 @@ namespace ReRenderingOptions.Systems
                     // Set the exposure value to 0 using Override method
                     colorAdjustments.postExposure.Override(GlobalVariables.Instance.PostExposure);
                     colorAdjustments.contrast.Override(GlobalVariables.Instance.Contrast);
+                    colorAdjustments.hueShift.Override(GlobalVariables.Instance.hueShift);
+                    colorAdjustments.saturation.Override(GlobalVariables.Instance.Saturation);
 
                     // Accessing the postExposure field
                     float exposureValue = colorAdjustments.postExposure.value;
                     float contrastvalue = colorAdjustments.contrast.value;
 
-                    UnityEngine.Debug.Log("Contrast Value: " + contrastvalue);
-                    // Do something with the exposure value, for example, log it
-                    UnityEngine.Debug.Log("Post Exposure Value: " + exposureValue);
+
+            
                 }
             }
         }

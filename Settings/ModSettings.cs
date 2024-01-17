@@ -24,6 +24,7 @@ namespace ColorAdjustmentsMod.Mod
     using Game.UI;
     using System.IO;
     using ColorAdjustmentsMod.Settings;
+    using System.Diagnostics;
 
 
 
@@ -59,7 +60,7 @@ namespace ColorAdjustmentsMod.Mod
 
 
         [SettingsUISection("Advanced")]
-        [SettingsUISlider(min = 0f, max = 100f, step = 1f, unit = "percentage", scaleDragVolume = true, scalarMultiplier = 100f)]
+        [SettingsUISlider(min = -500f, max = 1000f, step = 1f, unit = "percentage", scaleDragVolume = true, scalarMultiplier = 100f)]
         public float PostExposure
         {
             get { return GlobalVariables.Instance.PostExposure; }
@@ -72,7 +73,7 @@ namespace ColorAdjustmentsMod.Mod
 
 
         [SettingsUISection("Advanced")]
-        [SettingsUISlider(min = 0f, max = 100f, step = 1f, unit = "percentage", scaleDragVolume = true, scalarMultiplier = 100f)]
+        [SettingsUISlider(min = -500f, max = 1000f, step = 1f, unit = "percentage", scaleDragVolume = true, scalarMultiplier = 100f)]
         public float Contrast
         {
             get { return GlobalVariables.Instance.Contrast; }
@@ -83,6 +84,29 @@ namespace ColorAdjustmentsMod.Mod
             }
         }
 
+        [SettingsUISection("Advanced")]
+        [SettingsUISlider(min = -500f, max = 1000f, step = 1f, unit = "percentage", scaleDragVolume = true, scalarMultiplier = 100f)]
+        public float HueShift
+        {
+            get { return GlobalVariables.Instance.hueShift; }
+            set
+            {
+                GlobalVariables.Instance.hueShift = value;
+                SaveToFileIn();
+            }
+        }
+
+        [SettingsUISection("Advanced")]
+        [SettingsUISlider(min = -500f, max = 1000f, step = 1f, unit = "percentage", scaleDragVolume = true, scalarMultiplier = 100f)]
+        public float Saturation
+        {
+            get { return GlobalVariables.Instance.Saturation; }
+            set
+            {
+                GlobalVariables.Instance.Saturation = value;
+                SaveToFileIn();
+            }
+        }
 
         /// <summary>
 
@@ -105,17 +129,86 @@ namespace ColorAdjustmentsMod.Mod
             }
         }
 
+        [SettingsUIButton]
+        [SettingsUISection("Advanced")]
+        public bool OpenLocationButton
+        {
+            set
+            {  OpenLocation();
+            
+            }
+        }
+
+        [SettingsUIButton]
+        [SettingsUISection("Advanced")]
+        public bool Support
+        {
+            set
+            {
+                OpenDiscordInvite();
+
+            }
+        }
+
+
         /// <summary>
         /// Restores mod settings to default.
         /// </summary>
         public override void SetDefaults()
         {
-         
+            GlobalVariables.Instance.hueShift = 1f;
+            GlobalVariables.Instance.PostExposure = 1f;
+            GlobalVariables.Instance.Saturation = 1f;
+            GlobalVariables.Instance.Contrast = 1f;
+            SaveToFileIn();
 
 
         }
 
-        public void SaveToFileIn()
+        public void OpenLocation()
+        {
+            try
+            {
+                string fileName = "ColorAdjustments.xml";
+                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
+
+                // Check if the file exists
+                if (File.Exists(filePath))
+                {
+           
+                    Process.Start(filePath);
+                }
+                else
+                {
+                    Console.WriteLine("File not found: " + filePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+        }
+
+        public void OpenDiscordInvite()
+        {
+            try
+            {
+                // Replace the Discord invite link with your actual link
+                string discordInviteLink = "https://discord.gg/5JcaKwDBHn";
+
+                // Use Process.Start to open the URL in the default web browser
+                System.Diagnostics.Process.Start(discordInviteLink);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+        }
+    
+
+
+
+    public void SaveToFileIn()
         {
             string assemblyDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ColorAdjustments.xml");
              GlobalVariables.SaveToFile(assemblyDirectory);
