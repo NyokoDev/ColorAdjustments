@@ -36,7 +36,6 @@ namespace ColorAdjustmentsMod.Mod
     [FileLocation(Mod.ModName)]
     public class ModSettings : ModSetting
     {
-        private bool ForceLowGlobalQualityValue;
         public float LowestValueSet = 0.001f;
         public float HighestValueSet = 5f;
         public static float Fraction = 1f;
@@ -169,18 +168,22 @@ namespace ColorAdjustmentsMod.Mod
         {
             try
             {
-                string fileName = "ColorAdjustments.xml";
-                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
+
+                string localLowDirectory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                localLowDirectory = Path.Combine(localLowDirectory, "..", "LocalLow");
+                string assemblyDirectory = Path.Combine(localLowDirectory, "Colossal Order", "Cities Skylines II", "Mods", "ColorAdjustments");
+                string settingsFilePath = Path.Combine(assemblyDirectory, "ColorAdjustments.xml");
+
 
                 // Check if the file exists
-                if (File.Exists(filePath))
+                if (File.Exists(settingsFilePath))
                 {
            
-                    Process.Start(filePath);
+                    Process.Start(settingsFilePath);
                 }
                 else
                 {
-                    Console.WriteLine("File not found: " + filePath);
+                    Console.WriteLine("File not found: " + settingsFilePath);
                 }
             }
             catch (Exception ex)
@@ -210,8 +213,12 @@ namespace ColorAdjustmentsMod.Mod
 
     public void SaveToFileIn()
         {
-            string assemblyDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ColorAdjustments.xml");
-             GlobalVariables.SaveToFile(assemblyDirectory);
+            string localLowDirectory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            localLowDirectory = Path.Combine(localLowDirectory, "..", "LocalLow");
+            string assemblyDirectory = Path.Combine(localLowDirectory, "Colossal Order", "Cities Skylines II", "Mods", "ColorAdjustments");
+            Directory.CreateDirectory(assemblyDirectory);
+            string settingsFilePath = Path.Combine(assemblyDirectory, "ColorAdjustments.xml");
+            GlobalVariables.SaveToFile(settingsFilePath);
         }
 
         /// <summary>

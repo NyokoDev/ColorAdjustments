@@ -14,7 +14,6 @@ using Game.UI.InGame;
 using HarmonyLib;
 using static UnityEngine.MonoBehaviour;
 using Colossal.UI;
-using HookUILib.Core;
 using UnityEngine.Rendering.HighDefinition;
 using ReRenderingOptions;
 
@@ -24,7 +23,7 @@ using ReRenderingOptions;
 
 namespace ColorAdjustmentsMod.Mod
 {
-    [BepInPlugin(GUID, "ColorAdjustments", "1.0")]
+    [BepInPlugin(GUID, "ColorAdjustments", "1.2")]
     [HarmonyPatch]
     public class Plugin : BaseUnityPlugin
     {
@@ -38,10 +37,6 @@ namespace ColorAdjustmentsMod.Mod
 
             _mod = new();
             _mod.OnLoad();
-
-            _mod.Log.Info("=======ColorAdjustments=======");
-            _mod.Log.Info("=======     Initialized   =======");
-            _mod.Log.Info("=======                   =======");
 
             // Apply Harmony patches.
             Harmony.CreateAndPatchAll(Assembly.GetExecutingAssembly(), GUID);

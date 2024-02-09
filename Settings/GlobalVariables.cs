@@ -69,7 +69,7 @@ namespace ColorAdjustmentsMod.Settings
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error loading GlobalVariables from file: {ex.Message}");
+                Console.WriteLine("Failed to load ColorAdjustments settings. Ensure that at least one setting is set.");
                 return null;
             }
         }

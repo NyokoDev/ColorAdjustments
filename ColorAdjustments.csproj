@@ -75,9 +75,6 @@
     <Reference Include="Game">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Cities Skylines II\Cities2_Data\Managed\Game.dll</HintPath>
     </Reference>
-    <Reference Include="HookUILib">
-      <HintPath>E:\HookUILib.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Burst.Unsafe">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Cities Skylines II\Cities2_Data\Managed\Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
@@ -195,6 +192,6 @@
   </ItemGroup>
   
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy &quot;C:\Users\Nyoko\source\repos\ColorAdjustmentsMain\DynRes\DynamicResolutionExtended\bin\Release\net472\ColorAdjustments.dll&quot; &quot;C:\Users\Nyoko\Documents\Cities Skylines II\ColorAdjustments&quot; /Y&#xD;&#xA;" />
+    <Exec Command="xcopy &quot;C:\Users\Nyoko\source\repos\CA\ColorAdjustments\bin\Release\net472\ColorAdjustments.dll&quot; &quot;C:\Users\Nyoko\Documents\Cities Skylines II\ColorAdjustments&quot; /Y&#xD;&#xA;" />
   </Target>
 </Project>
