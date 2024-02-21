@@ -14,6 +14,8 @@
     using System.IO;
     using UnityEngine;
     using Game.UI.InGame;
+    using System.Reflection;
+    using Version = System.Version;
 
     public sealed class Mod : IMod
     {
@@ -22,6 +24,8 @@
         /// </summary>
         public const string ModName = "ColorAdjustments";                    
         public static Mod Instance { get; private set; }
+
+        public static string Version = Assembly.GetExecutingAssembly().GetName().Version.ToString(); // Obtains the version
         internal ILog Log { get; private set; }
 
         public bool Compatible;
@@ -57,14 +61,15 @@
                 ActiveSettings = new(this);
                 ActiveSettings.RegisterInOptionsUI();
                 Localization.LoadTranslations(ActiveSettings, Log);
-                updateSystem.UpdateAfter<System>(SystemUpdatePhase.PreSimulation);
+                updateSystem.UpdateAfter<System>(SystemUpdatePhase.GameSimulation);
+                updateSystem.UpdateAfter<EnablerVolumeSystem>(SystemUpdatePhase.GameSimulation);
                 updateSystem.UpdateAfter<System>(SystemUpdatePhase.GameSimulation);
                 string localLowDirectory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
                 localLowDirectory = Path.Combine(localLowDirectory, "..", "LocalLow");
                 string assemblyDirectory = Path.Combine(localLowDirectory, "Colossal Order", "Cities Skylines II", "Mods", "ColorAdjustments");
                 string settingsFilePath = Path.Combine(assemblyDirectory, "ColorAdjustments.xml");
                 ///
-                Console.WriteLine("ColorAdjustments 1.2", ConsoleColor.Blue, ConsoleColor.Blue);
+                Console.WriteLine("ColorAdjustments " + Version, ConsoleColor.Blue, ConsoleColor.Blue);
                 Console.WriteLine("Support: https://discord.gg/5gZgRNm29e", ConsoleColor.Blue, ConsoleColor.Blue);
                 Console.WriteLine("Donate: https://shorturl.at/hmpCW", ConsoleColor.Blue, ConsoleColor.Blue);
                 Console.ForegroundColor = ConsoleColor.Magenta;

@@ -22,6 +22,12 @@ namespace ColorAdjustmentsMod.Settings
         [XmlElement]
         public float Saturation { get; set; }
 
+        [XmlElement]
+        public float Temperature { get; set; }
+
+        [XmlElement]
+        public float Tint { get; set; }
+
 
         public static void SaveToFile(string filePath)
         {
@@ -63,6 +69,10 @@ namespace ColorAdjustmentsMod.Settings
                     GlobalVariables.Instance.Contrast = loadedVariables.Contrast;
                     GlobalVariables.Instance.hueShift = loadedVariables.hueShift;
                     GlobalVariables.Instance.Saturation = loadedVariables.Saturation;
+                    GlobalVariables.Instance.Temperature = loadedVariables.Temperature;
+                    GlobalVariables.Instance.Tint = loadedVariables.Tint;
+
+
 
                     return loadedVariables;
                 }
@@ -88,5 +98,6 @@ namespace ColorAdjustmentsMod.Settings
                 return instance;
             }
         }
+
     }
 }

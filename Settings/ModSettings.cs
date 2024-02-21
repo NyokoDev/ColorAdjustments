@@ -107,6 +107,32 @@ namespace ColorAdjustmentsMod.Mod
             }
         }
 
+#if DEBUG
+        [SettingsUISection("Advanced")]
+        [SettingsUISlider(min = -100f, max = 100f, step = 10.00f, unit = "integer", scaleDragVolume = true, scalarMultiplier = 1f)]
+        public float Temperature
+        {
+            get { return GlobalVariables.Instance.Temperature; }
+            set
+            {
+                GlobalVariables.Instance.Temperature = value;
+                SaveToFileIn();
+            }
+        }
+
+        [SettingsUISection("Advanced")]
+        [SettingsUISlider(min = -100f, max = 100f, step = 10.00f, unit = "integer", scaleDragVolume = true, scalarMultiplier = 1f)]
+        public float Tint
+        {
+            get { return GlobalVariables.Instance.Tint; }
+            set
+            {
+                GlobalVariables.Instance.Tint = value;
+                SaveToFileIn();
+            }
+        }
+#endif
+
         /// <summary>
 
         /// <summary>
@@ -133,8 +159,9 @@ namespace ColorAdjustmentsMod.Mod
         public bool OpenLocationButton
         {
             set
-            {  OpenLocation();
-            
+            {
+                OpenLocation();
+
             }
         }
 
@@ -178,7 +205,7 @@ namespace ColorAdjustmentsMod.Mod
                 // Check if the file exists
                 if (File.Exists(settingsFilePath))
                 {
-           
+
                     Process.Start(settingsFilePath);
                 }
                 else
@@ -207,11 +234,11 @@ namespace ColorAdjustmentsMod.Mod
                 Console.WriteLine("An error occurred: " + ex.Message);
             }
         }
-    
 
 
 
-    public void SaveToFileIn()
+
+        public void SaveToFileIn()
         {
             string localLowDirectory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             localLowDirectory = Path.Combine(localLowDirectory, "..", "LocalLow");
@@ -226,7 +253,7 @@ namespace ColorAdjustmentsMod.Mod
         /// </summary>
         public void SetSettings()
         {
-      
+
         }
 
         /// <summary>
@@ -235,14 +262,17 @@ namespace ColorAdjustmentsMod.Mod
         public override void Apply()
         {
             base.Apply();
-            
 
 
-
-            }
 
 
         }
+
+
     }
+}
+
+
+
 
 

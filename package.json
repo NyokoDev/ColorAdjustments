@@ -1,20 +1,16 @@
 {
-  "name": "ReRenderingOptions",
+  "name": "coloradjustments",
   "version": "1.0.0",
-  "description": "Your package description",
+  "description": "Fine-tune exposure, contrast, hue, and saturation.",
   "main": "ui.transpiled.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Your Name",
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "@emotion/react": "^11.11.3",
-    "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.15.4",
-    "hookui-framework": "github:captain-of-coit/hookui-framework"
-  },
-  "devDependencies": {
-    "esbuild": "^0.16.2"
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "hookui-framework": "github:captain-of-coit/hookui-framework",
+    "react": "^18.2.0"
   }
 }

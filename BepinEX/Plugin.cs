@@ -23,7 +23,7 @@ using ReRenderingOptions;
 
 namespace ColorAdjustmentsMod.Mod
 {
-    [BepInPlugin(GUID, "ColorAdjustments", "1.2")]
+    [BepInPlugin(GUID, "ColorAdjustments", "1.3")]
     [HarmonyPatch]
     public class Plugin : BaseUnityPlugin
     {
