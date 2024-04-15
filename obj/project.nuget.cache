@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "RSQv2qAW/yTV1Xm0G9ygzJEKdl5YyQxdE0Epz759+TNZPopGEWgKB+bkgb1qwEQV5C1NpBMGUTRxnHJWoVP6iQ==",
+  "dgSpecHash": "2Xvy6qY1l4+WID7b8qIQi1hk0U7Z+UWZMPoKcI6Hbkjoyv0YuC/LUELkSwR5U73tksJcoj6dKajIdU0Be9pqNw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Nyoko\\Documents\\PDXMODS\\ColorAdjustments\\ColorAdjustments\\ColorAdjustments.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Nyoko\\.nuget\\packages\\lib.harmony\\2.2.2\\lib.harmony.2.2.2.nupkg.sha512"
+  ],
   "logs": []
 }

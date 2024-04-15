@@ -14,9 +14,12 @@
 		<!--Your.PDX@Account.login-->
 		<!--Your-PDX-Account-Pa$$word-->
 		<PDXAccountDataPath>$(USERPROFILE)\Desktop\pdx_account.txt</PDXAccountDataPath>
+		<LangVersion>9.0</LangVersion>
 		
 		<!--The file where mod information which is required for publishing mod on PDX mods are stored-->
 		<PublishConfigurationPath>Properties\PublishConfiguration.xml</PublishConfigurationPath>
+		<SignAssembly>False</SignAssembly>
+		<AssemblyVersion>1.2</AssemblyVersion>
 	</PropertyGroup>
 	
 	<!--Imports must be after PropertyGroup block-->
@@ -24,6 +27,9 @@
 	<Import Project="$([System.Environment]::GetEnvironmentVariable('CSII_TOOLPATH', 'EnvironmentVariableTarget.User'))\Mod.targets" />
 
 	<ItemGroup>
+		<Reference Include="Colossal.Collections">
+			<Private>false</Private>
+		</Reference>
 		<Reference Include="Game">
 			<Private>false</Private>
 		</Reference>
@@ -93,5 +99,11 @@
 		<None Include="$(ModPropsFile)" Link="Properties\Mod.props" />
 		<None Include="$(ModTargetsFile)" Link="Properties\Mod.targets" />
 	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Lib.Harmony" Version="2.2.2" />
+	</ItemGroup>
+
+
 
 </Project>

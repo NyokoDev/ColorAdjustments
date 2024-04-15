@@ -1,9 +1,12 @@
 C:\Users\Nyoko\Documents\PDXMODS\ColorAdjustments\ColorAdjustments\bin\Release\net472\ColorAdjustments.dll
 C:\Users\Nyoko\Documents\PDXMODS\ColorAdjustments\ColorAdjustments\bin\Release\net472\ColorAdjustments.pdb
+C:\Users\Nyoko\Documents\PDXMODS\ColorAdjustments\ColorAdjustments\bin\Release\net472\0Harmony.dll
 C:\Users\Nyoko\Documents\PDXMODS\ColorAdjustments\ColorAdjustments\obj\Release\net472\ColorAdjustments.csproj.AssemblyReference.cache
 C:\Users\Nyoko\Documents\PDXMODS\ColorAdjustments\ColorAdjustments\obj\Release\net472\ColorAdjustments.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Nyoko\Documents\PDXMODS\ColorAdjustments\ColorAdjustments\obj\Release\net472\ColorAdjustments.AssemblyInfoInputs.cache
 C:\Users\Nyoko\Documents\PDXMODS\ColorAdjustments\ColorAdjustments\obj\Release\net472\ColorAdjustments.AssemblyInfo.cs
 C:\Users\Nyoko\Documents\PDXMODS\ColorAdjustments\ColorAdjustments\obj\Release\net472\ColorAdjustments.csproj.CoreCompileInputs.cache
+C:\Users\Nyoko\Documents\PDXMODS\ColorAdjustments\ColorAdjustments\obj\Release\net472\ColorAdjustments.sourcelink.json
+C:\Users\Nyoko\Documents\PDXMODS\ColorAdjustments\ColorAdjustments\obj\Release\net472\ColorAdj.0BBD949D.Up2Date
 C:\Users\Nyoko\Documents\PDXMODS\ColorAdjustments\ColorAdjustments\obj\Release\net472\ColorAdjustments.dll
 C:\Users\Nyoko\Documents\PDXMODS\ColorAdjustments\ColorAdjustments\obj\Release\net472\ColorAdjustments.pdb

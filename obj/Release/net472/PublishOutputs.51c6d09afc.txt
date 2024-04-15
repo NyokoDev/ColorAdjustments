@@ -1,2 +1,3 @@
 C:\Users\Nyoko\Documents\PDXMODS\ColorAdjustments\ColorAdjustments\bin\Release\net472\ColorAdjustments.dll
 C:\Users\Nyoko\Documents\PDXMODS\ColorAdjustments\ColorAdjustments\bin\Release\net472\ColorAdjustments.pdb
+C:\Users\Nyoko\Documents\PDXMODS\ColorAdjustments\ColorAdjustments\bin\Release\net472\0Harmony.dll

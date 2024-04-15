@@ -22,6 +22,12 @@ namespace ColorAdjustmentsMod.XML
         [XmlElement]
         public float Saturation { get; set; }
 
+        [XmlElement]
+        public float Longitude { get; set; }
+
+        [XmlElement]
+        public float Latitude { get; set; }
+
 #if DEBUG
         [XmlElement]
         public float Temperature { get; set; }
@@ -103,6 +109,7 @@ namespace ColorAdjustmentsMod.XML
                 return instance;
             }
         }
+
 
     }
 }

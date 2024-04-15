@@ -11,6 +11,9 @@ using UnityEngine.Rendering.HighDefinition;
 using UnityEngine;
 using ColorAdjustmentsMod.XML;
 using ColorAdjustments.UI;
+using Game.Simulation;
+using JetBrains.Annotations;
+using Game.Assets;
 
 namespace ColorAdjustments.Systems
 {
@@ -37,6 +40,7 @@ namespace ColorAdjustments.Systems
                 Panel = false;
             }
 
+            PlanetarySettings();
 
 
             // Use reflection to get the private ColorAdjustments field from LightingSystem
@@ -62,6 +66,8 @@ namespace ColorAdjustments.Systems
 
 
 
+
+
                     /// White Balance retrieval
                     Type photoModeRenderSystemType = typeof(PhotoModeRenderSystem);
                     FieldInfo whiteBalanceField = photoModeRenderSystemType.GetField("m_WhiteBalance", BindingFlags.NonPublic | BindingFlags.Instance);
@@ -84,10 +90,71 @@ namespace ColorAdjustments.Systems
 #endif
 
 
-
                         }
                     }
                 }
+            }
+        }
+
+        private void PlanetarySettings()
+        {
+            try
+            {
+                Mod.log.Info("Entered PlanetarySettings");
+
+                LightingSystem lightingSystemInstance = World.GetExistingSystemManaged<LightingSystem>();
+                if (lightingSystemInstance != null)
+                {
+                    Type lightingSystemType = typeof(LightingSystem);
+                    FieldInfo planetarySystemField = lightingSystemType.GetField("m_PlanetarySystem", BindingFlags.NonPublic | BindingFlags.Instance);
+
+                    if (planetarySystemField != null)
+                    {
+                        PlanetarySystem planetarySystemInstance = (PlanetarySystem)planetarySystemField.GetValue(lightingSystemInstance);
+
+                        if (planetarySystemInstance != null)
+                        {
+                            Mod.log.Info("Current Longitude: " + planetarySystemInstance.longitude);
+                            Mod.log.Info("Current Latitude: " + planetarySystemInstance.latitude);
+
+                            Type planetarySystemType = typeof(PlanetarySystem);
+                            FieldInfo latitudeField = planetarySystemType.GetField("m_Latitude", BindingFlags.NonPublic | BindingFlags.Instance);
+                            FieldInfo longitudeField = planetarySystemType.GetField("m_Longitude", BindingFlags.NonPublic | BindingFlags.Instance);
+
+                            if (latitudeField != null && longitudeField != null)
+                            {
+                                float newLatitude = GlobalVariables.Instance.Latitude;
+                                float newLongitude = GlobalVariables.Instance.Longitude;
+
+                                latitudeField.SetValue(planetarySystemInstance, newLatitude);
+                                longitudeField.SetValue(planetarySystemInstance, newLongitude);
+
+                                Mod.log.Info("Set Latitude: " + planetarySystemInstance.latitude);
+                                Mod.log.Info("Set Longitude: " + planetarySystemInstance.longitude);
+                            }
+                            else
+                            {
+                                Mod.log.Info("Latitude or longitude field not found.");
+                            }
+                        }
+                        else
+                        {
+                            Mod.log.Info("PlanetarySystemInstance is null.");
+                        }
+                    }
+                    else
+                    {
+                        Mod.log.Info("m_PlanetarySystem field not found in LightingSystem.");
+                    }
+                }
+                else
+                {
+                    Mod.log.Info("LightingSystemInstance is null.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Mod.log.Info("An error occurred: " + ex.Message);
             }
         }
     }
